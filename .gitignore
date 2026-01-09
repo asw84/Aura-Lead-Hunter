@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+*.egg-info/
+dist/
+build/
+
+# Environment & Secrets (CRITICAL!)
+.env
+.env.local
+.env.production
+*.env
+
+# Telegram Sessions (EXTREMELY SENSITIVE!)
+sessions/*.session
+sessions/*.session-journal
+*.session
+*.session-journal
+
+# Data exports (contains PII)
+data/*.csv
+data/*.html
+data/potential_chats.txt
+
+# Logs
+logs/
+*.log
+*.jsonl
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-*
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Keep directory structure
+!sessions/.gitkeep
+!data/.gitkeep
+!logs/.gitkeep

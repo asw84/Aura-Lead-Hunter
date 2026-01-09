@@ -1,0 +1,51 @@
+# Aura Lead Hunter - Target Chats Database
+# ==========================================
+# Split into 4 sessions to avoid Telegram bans
+# Run 1 session per day with 90-180s delays between joins
+
+# ===== SESSION 1: Арбитраж/CPA (Run Day 1) =====
+# These are your MONEY chats - highest lead concentration
+piratecpa_chat
+cpacash_chat
+arbitrazh_chat
+pro_traff
+affiliate_conf_chat
+leadrock_chat
+cpa_hub
+arbitraj_traffika
+affiliate_marketing_cis
+arbitrazh_is_live
+
+# ===== SESSION 2: TON/Crypto Builders (Run Day 2) =====
+# Your expertise area - high-value tech leads
+tondev_ru
+ton_society_global
+ton_builders
+ton_developers
+ton_ecosystem
+ton_talk_chat
+ton_apps_chat
+ton_p2p_chat
+fragment_chat
+ton_nft_chat
+
+# ===== SESSION 3: Global/Alpha English (Run Day 3) =====
+# $100+/hour leads - whales and founders
+DeFi_Declassified
+ICO_Analytics_Chat
+BinanceEnglish
+BybitEnglish
+KuCoin_Exchange
+Gateio_English
+MEXCEnglish
+OKXOfficial_English
+Solana_Chat
+Ethereum_Chat
+
+# ===== SESSION 4: Jobs/Gigs (Run Day 4) =====
+# Active dev seekers
+web3_jobs
+ton_dev_jobs
+javascript_jobs_ru
+python_jobs_ru
+it_jobs_cis
