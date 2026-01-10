@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { domToPng } from 'modern-screenshot';
+import { QRCodeCanvas } from 'qrcode.react';
 
 // ========== CONFIGURATION (same as main page) ==========
 const VALID_CODES = [
@@ -739,11 +740,21 @@ export default function Matchmaking() {
                             </div>
 
                             <div className="flex justify-center">
-                                <div className="w-48 h-48 bg-white rounded-xl flex items-center justify-center p-2">
-                                    <div className="text-center">
-                                        <div className="text-6xl mb-2">📱</div>
-                                        <span className="text-black text-xs">Scan QR Code</span>
-                                    </div>
+                                <div className="bg-white p-3 rounded-xl shadow-lg border-4 border-purple-500/20">
+                                    <QRCodeCanvas
+                                        value={USDT_ADDRESS}
+                                        size={180}
+                                        level="H"
+                                        includeMargin={false}
+                                        imageSettings={{
+                                            src: "/aura.png",
+                                            x: undefined,
+                                            y: undefined,
+                                            height: 40,
+                                            width: 40,
+                                            excavate: true,
+                                        }}
+                                    />
                                 </div>
                             </div>
 
