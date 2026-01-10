@@ -26,15 +26,15 @@ const TELEGRAM_HANDLE = '@SergAI_BY';                         // Telegram for co
 
 // Real leads data from scraper
 const allLeads = [
-  { handle: 'ID:519043552', name: 'Anastasiia', score: 10, category: 'marketing_pro', reason_en: 'Recruiting for affiliate marketing roles, focusing on traffic, CPA, and conversions.', reason_ru: 'Рекрутинг в арбитраже, фокус на трафик, CPA и конверсии', source: 'CPA HR | Вакансии', keywords: ['traff', 'cpa', 'manager'] },
-  { handle: 'ID:8104231262', name: 'Spider 🕷️🕸️', score: 10, category: 'traffic_buyer', reason_en: 'Offers traffic services for crypto and other niches, high volume ability', reason_ru: 'Предлагает услуги по заливу трафика для крипты и других ниш', source: 'CPA HR | Вакансии', keywords: ['крипто', 'трафик', 'traff'] },
-  { handle: '@xboss01', name: 'Mohit Pal', score: 9, category: 'traffic_buyer', reason_en: 'Has 2M daily FB traffic, seeks dating offers, runs campaigns', reason_ru: 'Имеет 2М трафа в день, ищет датинг офферы, запускает кампании', source: 'Zeydoo CPA 📣 ENG', keywords: ['offer', 'traff', 'manager'] },
-  { handle: 'ID:6825323525', name: 'Michael Walker', score: 9, category: 'traffic_buyer', reason_en: 'Offers live traffic and native ads for crypto-forex.', reason_ru: 'Предлагает живой трафик и нативные объявления для крипто-форекс', source: 'УБТ ЧАТ | АРБИТРАЖ ТРАФИКА', keywords: ['partnership', 'ads', 'traff'] },
-  { handle: '@biggTraff', name: 'B I G_TRAFFA', score: 9, category: 'traffic_buyer', reason_en: 'Offers traffic services for crypto and other niches, professional setup', reason_ru: 'Предлагает услуги по заливу трафа в крипту и другие ниши', source: 'СPA | Арбитраж вакансии', keywords: ['крипто', 'трафик', 'traff'] },
-  { handle: 'ID:7299216494', name: 'Yuliya Aff', score: 9, category: 'marketing_pro', reason_en: 'Hiring Media Buyer for Gambling ads, FB campaigns, conversions', reason_ru: 'Ищет Media Buyer для Gambling, FB кампании, конверт', source: 'Чат траферов | Арбитраж трафика', keywords: ['buy', 'manager', 'ads'] },
-  { handle: '@zagrtmsh', name: 'Daniil', score: 9, category: 'traffic_buyer', reason_en: 'Actively seeking gambling traffic for multiple GEOs', reason_ru: 'Ищет трафик на гемблинг для множества гео', source: 'СPA | Арбитраж вакансии', keywords: ['арбитраж', 'трафик'] },
-  { handle: '@aaroninc', name: 'Aaron Ch', score: 9, category: 'traffic_buyer', reason_en: 'Promoting high-EPC offers and targeting traffic buyers', reason_ru: 'Продвигает офферы с высоким EPC и ищет трафик', source: 'СPA | Арбитраж вакансии', keywords: ['traff', 'offer'] },
-  { handle: '@Trafik_01_01', name: 'Alexxx XXX💸', score: 9, category: 'traffic_buyer', reason_en: 'Experienced traffic buyer, offers CPA conversions', reason_ru: 'Опытный трафер, работает по CPA, делает крео', source: 'Вакансии Арбитраж CPA', keywords: ['реклама', 'трафик'] },
+  { handle: 'ID:519043552', name: 'Anastasiia', score: 10, category: 'marketing_pro', geo: 'CIS', vertical: 'Crypto', reason_en: 'Recruiting for affiliate marketing roles, focusing on traffic, CPA, and conversions.', reason_ru: 'Рекрутинг в арбитраже, фокус на трафик, CPA и конверсии', source: 'CPA HR | Вакансии', keywords: ['traff', 'cpa', 'manager'] },
+  { handle: 'ID:8104231262', name: 'Spider 🕷️🕸️', score: 10, category: 'traffic_buyer', geo: 'CIS', vertical: 'Crypto', reason_en: 'Offers traffic services for crypto and other niches, high volume ability', reason_ru: 'Предлагает услуги по заливу трафика для крипты и других ниш', source: 'CPA HR | Вакансии', keywords: ['крипто', 'трафик', 'traff'] },
+  { handle: '@xboss01', name: 'Mohit Pal', score: 9, category: 'traffic_buyer', geo: 'India', vertical: 'Dating', reason_en: 'Has 2M daily FB traffic, seeks dating offers, runs campaigns', reason_ru: 'Имеет 2М трафа в день, ищет датинг офферы, запускает кампании', source: 'Zeydoo CPA 📣 ENG', keywords: ['offer', 'traff', 'manager'] },
+  { handle: 'ID:6825323525', name: 'Michael Walker', score: 9, category: 'traffic_buyer', geo: 'USA', vertical: 'Crypto', reason_en: 'Offers live traffic and native ads for crypto-forex.', reason_ru: 'Предлагает живой трафик и нативные объявления для крипто-форекс', source: 'УБТ ЧАТ | АРБИТРАЖ ТРАФИКА', keywords: ['partnership', 'ads', 'traff'] },
+  { handle: '@biggTraff', name: 'B I G_TRAFFA', score: 9, category: 'traffic_buyer', geo: 'CIS', vertical: 'Crypto', reason_en: 'Offers traffic services for crypto and other niches, professional setup', reason_ru: 'Предлагает услуги по заливу трафа в крипту и другие ниши', source: 'СPA | Арбитраж вакансии', keywords: ['крипто', 'трафик', 'traff'] },
+  { handle: 'ID:7299216494', name: 'Yuliya Aff', score: 9, category: 'marketing_pro', geo: 'CIS', vertical: 'Gambling', reason_en: 'Hiring Media Buyer for Gambling ads, FB campaigns, conversions', reason_ru: 'Ищет Media Buyer для Gambling, FB кампании, конверт', source: 'Чат траферов | Арбитраж трафика', keywords: ['buy', 'manager', 'ads'] },
+  { handle: '@zagrtmsh', name: 'Daniil', score: 9, category: 'traffic_buyer', geo: 'CIS', vertical: 'Gambling', reason_en: 'Actively seeking gambling traffic for multiple GEOs', reason_ru: 'Ищет трафик на гемблинг для множества гео', source: 'СPA | Арбитраж вакансии', keywords: ['арбитраж', 'трафик'] },
+  { handle: '@aaroninc', name: 'Aaron Ch', score: 9, category: 'traffic_buyer', geo: 'Other', vertical: 'Nutra', reason_en: 'Promoting high-EPC offers and targeting traffic buyers', reason_ru: 'Продвигает офферы с высоким EPC и ищет трафик', source: 'СPA | Арбитраж вакансии', keywords: ['traff', 'offer'] },
+  { handle: '@Trafik_01_01', name: 'Alexxx XXX💸', score: 9, category: 'traffic_buyer', geo: 'CIS', vertical: 'Gambling', reason_en: 'Experienced traffic buyer, offers CPA conversions', reason_ru: 'Опытный трафер, работает по CPA, делает крео', source: 'Вакансии Арбитраж CPA', keywords: ['реклама', 'трафик'] },
 ];
 
 const stats = {
@@ -95,6 +95,8 @@ export default function Home() {
   const [unlockCode, setUnlockCode] = useState('');
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [unlockError, setUnlockError] = useState('');
+  const [geoFilter, setGeoFilter] = useState('All');
+  const [verticalFilter, setVerticalFilter] = useState('All');
 
   // Check for unlock on mount
   useEffect(() => {
@@ -161,6 +163,12 @@ export default function Home() {
       signalVelocity: 'Signal Velocity (Pulse)',
       whaleScore: 'Whale Score',
       marketHealth: 'Base Quality Index',
+      filterTitle: 'Advanced Filters',
+      allGeos: 'All GEOs',
+      allVerticals: 'All Verticals',
+      showing: 'Showing',
+      leads: 'leads',
+      clear: 'Clear Filters',
       paymentTitle: 'Payment Instructions',
       paymentStep1: 'Send $50 USDT (TRC20) to:',
       paymentStep2: 'After payment, DM for your unlock code:',
@@ -201,6 +209,12 @@ export default function Home() {
       signalVelocity: 'Скорость Пульса (FOMO)',
       whaleScore: 'Whale Score',
       marketHealth: 'Индекс Качества Базы',
+      filterTitle: 'Продвинутые фильтры',
+      allGeos: 'Все ГЕО',
+      allVerticals: 'Все Вертикали',
+      showing: 'Показано',
+      leads: 'лидов',
+      clear: 'Сбросить',
       paymentTitle: 'Инструкция по оплате',
       paymentStep1: 'Отправьте $50 USDT (TRC20) на:',
       paymentStep2: 'После оплаты напишите для получения кода:',
@@ -215,8 +229,18 @@ export default function Home() {
   };
 
   const text = t[lang];
-  const visibleLeads = isUnlocked ? allLeads : allLeads.slice(0, 5);
-  const lockedLeads = allLeads.slice(5);
+
+  const filteredLeads = allLeads.filter(lead => {
+    const matchGeo = geoFilter === 'All' || lead.geo === geoFilter;
+    const matchVertical = verticalFilter === 'All' || lead.vertical === verticalFilter;
+    return matchGeo && matchVertical;
+  });
+
+  const visibleLeads = isUnlocked ? filteredLeads : filteredLeads.slice(0, 5);
+  const lockedLeads = filteredLeads.slice(5);
+
+  const geos = ['All', ...Array.from(new Set(allLeads.map(l => l.geo)))];
+  const verticals = ['All', ...Array.from(new Set(allLeads.map(l => l.vertical)))];
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] text-white p-5">
@@ -427,6 +451,56 @@ export default function Home() {
                 <div className="text-gray-400 text-sm mt-1">{cat.icon} {cat.name}</div>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Filter Bar */}
+        <section className="bg-white/5 backdrop-blur-md rounded-2xl p-6 mb-8 border border-white/10">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="bg-[#00d4ff]/20 p-2 rounded-lg">
+                <Globe size={20} className="text-[#00d4ff]" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white">{text.filterTitle}</h3>
+                <p className="text-xs text-gray-500">
+                  {text.showing} <span className="text-[#00d4ff] font-bold">{filteredLeads.length}</span> {text.leads}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              <select
+                value={geoFilter}
+                onChange={(e) => setGeoFilter(e.target.value)}
+                className="bg-black/30 border border-white/10 rounded-xl px-4 py-2 text-sm focus:border-[#00d4ff] focus:outline-none transition-all cursor-pointer"
+              >
+                <option value="All">{text.allGeos}</option>
+                {geos.filter(g => g !== 'All').map(g => (
+                  <option key={g} value={g}>{g}</option>
+                ))}
+              </select>
+
+              <select
+                value={verticalFilter}
+                onChange={(e) => setVerticalFilter(e.target.value)}
+                className="bg-black/30 border border-white/10 rounded-xl px-4 py-2 text-sm focus:border-[#00d4ff] focus:outline-none transition-all cursor-pointer"
+              >
+                <option value="All">{text.allVerticals}</option>
+                {verticals.filter(v => v !== 'All').map(v => (
+                  <option key={v} value={v}>{v}</option>
+                ))}
+              </select>
+
+              {(geoFilter !== 'All' || verticalFilter !== 'All') && (
+                <button
+                  onClick={() => { setGeoFilter('All'); setVerticalFilter('All'); }}
+                  className="text-xs text-red-400 hover:text-red-300 transition-colors uppercase font-bold tracking-widest px-2"
+                >
+                  ✕ {text.clear}
+                </button>
+              )}
+            </div>
           </div>
         </section>
 
@@ -659,10 +733,16 @@ function LeadCard({ lead, lang }: { lead: typeof allLeads[0]; lang: 'en' | 'ru' 
       </div>
 
       <div className="flex flex-wrap items-center gap-2 mb-3">
-        <span className="bg-purple-500/30 px-3 py-1 rounded-lg text-sm">
+        <span className="bg-purple-500/30 px-3 py-1 rounded-lg text-xs font-bold text-purple-300">
           {categoryIcons[lead.category] || '📌'} {lead.category}
         </span>
-        <span className="text-gray-500 text-sm">{lead.name}</span>
+        <span className="bg-cyan-500/20 px-3 py-1 rounded-lg text-xs font-bold text-cyan-300">
+          🌍 {lead.geo}
+        </span>
+        <span className="bg-emerald-500/20 px-3 py-1 rounded-lg text-xs font-bold text-emerald-300">
+          🎯 {lead.vertical}
+        </span>
+        <span className="text-gray-500 text-sm ml-auto">{lead.name}</span>
       </div>
 
       <p className="text-gray-400 italic mb-3">
