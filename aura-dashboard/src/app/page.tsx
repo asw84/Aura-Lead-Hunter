@@ -2,6 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import {
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+  PieChart, Pie, Cell, LineChart, Line, AreaChart, Area
+} from 'recharts';
+import {
+  Globe, Zap, Target, BarChart3, TrendingUp, ShieldCheck,
+  Users, MessageSquare, Award, Globe2
+} from 'lucide-react';
 // ========== CONFIGURATION ==========
 // Add your valid unlock codes here (you generate these manually after payment)
 const VALID_CODES = [
@@ -42,6 +50,41 @@ const categories = [
   { name: 'marketing_pro', count: 25, icon: '🎯' },
   { name: 'agency_owner', count: 12, icon: '🏢' },
   { name: 'influencer', count: 5, icon: '⭐' },
+];
+
+// ========== ANALYTICS DATA ==========
+const geoData = [
+  { name: 'India', value: 40, color: '#00d4ff' },
+  { name: 'CIS', value: 25, color: '#7b2cbf' },
+  { name: 'USA', value: 15, color: '#ff00c8' },
+  { name: 'Brazil', value: 10, color: '#00ff88' },
+  { name: 'Other', value: 10, color: '#555555' },
+];
+
+const sourceData = [
+  { name: 'FB Ads', value: 35 },
+  { name: 'TikTok', value: 25 },
+  { name: 'Google', value: 15 },
+  { name: 'In-app', value: 15 },
+  { name: 'SEO/UBT', value: 10 },
+];
+
+const verticalData = [
+  { name: 'Gambling', value: 38 },
+  { name: 'Crypto', value: 22 },
+  { name: 'Dating', value: 18 },
+  { name: 'Nutra', value: 12 },
+  { name: 'E-com', value: 10 },
+];
+
+const velocityData = [
+  { time: '00:00', leads: 12 },
+  { time: '04:00', leads: 8 },
+  { time: '08:00', leads: 24 },
+  { time: '12:00', leads: 42 },
+  { time: '16:00', leads: 38 },
+  { time: '20:00', leads: 56 },
+  { time: '23:59', leads: 45 },
 ];
 
 
@@ -105,12 +148,19 @@ export default function Home() {
       savePdfLocked: '🔒 PDF Locked',
       included: "What's Included:",
       features: [
-        '48 hot leads with Telegram handles',
+        '204 hot leads with Telegram handles',
         'AI-scored (7-10) traffic buyers',
         'Category breakdown & source info',
         'Bilingual report (EN/RU)',
         'CSV export ready',
       ],
+      analytics: 'Market Intelligence',
+      geoDist: 'Geo Distribution',
+      trafficTrends: 'Traffic Source Trends',
+      verticals: 'Vertical Concentration',
+      signalVelocity: 'Signal Velocity (Pulse)',
+      whaleScore: 'Whale Score',
+      marketHealth: 'Base Quality Index',
       paymentTitle: 'Payment Instructions',
       paymentStep1: 'Send $50 USDT (TRC20) to:',
       paymentStep2: 'After payment, DM for your unlock code:',
@@ -138,12 +188,19 @@ export default function Home() {
       savePdfLocked: '🔒 PDF заблокирован',
       included: 'Что включено:',
       features: [
-        '48 горячих лидов с Telegram handle',
+        '204 горячих лида с Telegram handle',
         'AI-оценка (7-10) байеров трафа',
         'Разбивка по категориям и источникам',
         'Билингвальный отчёт (EN/RU)',
         'Готовый CSV экспорт',
       ],
+      analytics: 'Бизнес-Аналитика',
+      geoDist: 'География Трафика',
+      trafficTrends: 'Тренды Источников',
+      verticals: 'Концентрация Ниш',
+      signalVelocity: 'Скорость Пульса (FOMO)',
+      whaleScore: 'Whale Score',
+      marketHealth: 'Индекс Качества Базы',
       paymentTitle: 'Инструкция по оплате',
       paymentStep1: 'Отправьте $50 USDT (TRC20) на:',
       paymentStep2: 'После оплаты напишите для получения кода:',
@@ -227,12 +284,136 @@ export default function Home() {
         </header>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-8">
-          <StatCard number={stats.chatsProcessed} label={text.chatsProcessed} />
-          <StatCard number={stats.usersAnalyzed} label={text.usersAnalyzed} />
-          <StatCard number={stats.leadsFound} label={text.leadsFound} />
-          <StatCard number={stats.hotLeads} label={text.hotLeads} emoji="🔥" />
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-5 mb-8">
+          <StatCard icon={<MessageSquare size={20} />} number={stats.chatsProcessed} label={text.chatsProcessed} />
+          <StatCard icon={<Users size={20} />} number={stats.usersAnalyzed} label={text.usersAnalyzed} />
+          <StatCard icon={<Target size={20} />} number={stats.leadsFound} label={text.leadsFound} />
+          <StatCard icon={<Zap size={20} className="text-orange-400" />} number={stats.hotLeads} label={text.hotLeads} emoji="🔥" />
+          <StatCard
+            icon={<Award size={20} className="text-yellow-400" />}
+            number={89}
+            suffix="%"
+            label={text.whaleScore}
+            sublabel={text.marketHealth}
+          />
         </div>
+
+        {/* Analytics Section */}
+        <section className="mb-8 overflow-hidden">
+          <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
+            <BarChart3 className="text-[#00d4ff]" /> {text.analytics}
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Geo Distribution */}
+            <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 flex flex-col items-center">
+              <h3 className="text-sm font-semibold text-gray-400 mb-4 flex items-center gap-2 self-start uppercase tracking-wider">
+                <Globe size={16} className="text-cyan-400" /> {text.geoDist}
+              </h3>
+              <div className="w-full h-[200px]">
+                <ResponsiveContainer width="100%" height="100%">
+                  <PieChart>
+                    <Pie
+                      data={geoData}
+                      cx="50%"
+                      cy="50%"
+                      innerRadius={60}
+                      outerRadius={80}
+                      paddingAngle={5}
+                      dataKey="value"
+                    >
+                      {geoData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={entry.color} />
+                      ))}
+                    </Pie>
+                    <Tooltip
+                      contentStyle={{ backgroundColor: '#1a1a2e', borderColor: '#333', color: '#fff' }}
+                      itemStyle={{ color: '#fff' }}
+                    />
+                  </PieChart>
+                </ResponsiveContainer>
+              </div>
+              <div className="grid grid-cols-2 gap-2 w-full mt-2">
+                {geoData.map((g) => (
+                  <div key={g.name} className="flex items-center gap-2 text-xs">
+                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: g.color }} />
+                    <span className="text-gray-400">{g.name}</span>
+                    <span className="ml-auto font-bold">{g.value}%</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Traffic Sources */}
+            <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 lg:col-span-1">
+              <h3 className="text-sm font-semibold text-gray-400 mb-6 flex items-center gap-2 uppercase tracking-wider">
+                <TrendingUp size={16} className="text-purple-400" /> {text.trafficTrends}
+              </h3>
+              <div className="w-full h-[220px]">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={sourceData} layout="vertical">
+                    <XAxis type="number" hide />
+                    <YAxis dataKey="name" type="category" axisLine={false} tickLine={false} tick={{ fill: '#aaa', fontSize: 11 }} width={80} />
+                    <Tooltip
+                      cursor={{ fill: 'rgba(255,255,255,0.05)' }}
+                      contentStyle={{ backgroundColor: '#1a1a2e', border: 'none', borderRadius: '8px' }}
+                    />
+                    <Bar dataKey="value" fill="#7b2cbf" radius={[0, 4, 4, 0]} barSize={20} />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+
+            {/* Vertical Concentration */}
+            <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10">
+              <h3 className="text-sm font-semibold text-gray-400 mb-6 flex items-center gap-2 uppercase tracking-wider">
+                <ShieldCheck size={16} className="text-emerald-400" /> {text.verticals}
+              </h3>
+              <div className="space-y-4">
+                {verticalData.map((v) => (
+                  <div key={v.name} className="relative pt-1">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs font-semibold text-gray-300">{v.name}</span>
+                      <span className="text-xs font-bold text-[#00d4ff]">{v.value}%</span>
+                    </div>
+                    <div className="overflow-hidden h-1.5 text-xs flex rounded bg-white/10">
+                      <div
+                        style={{ width: `${v.value}%` }}
+                        className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gradient-to-r from-[#00d4ff] to-[#7b2cbf]"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Signal Velocity */}
+            <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10">
+              <h3 className="text-sm font-semibold text-gray-400 mb-6 flex items-center gap-2 uppercase tracking-wider">
+                <Zap size={16} className="text-orange-400" /> {text.signalVelocity}
+              </h3>
+              <div className="w-full h-[180px]">
+                <ResponsiveContainer width="100%" height="100%">
+                  <AreaChart data={velocityData}>
+                    <defs>
+                      <linearGradient id="colorLeads" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor="#ff8c00" stopOpacity={0.3} />
+                        <stop offset="95%" stopColor="#ff8c00" stopOpacity={0} />
+                      </linearGradient>
+                    </defs>
+                    <Tooltip
+                      contentStyle={{ backgroundColor: '#1a1a2e', border: 'none', borderRadius: '8px' }}
+                    />
+                    <Area type="monotone" dataKey="leads" stroke="#ff8c00" fillOpacity={1} fill="url(#colorLeads)" />
+                  </AreaChart>
+                </ResponsiveContainer>
+              </div>
+              <p className="text-[10px] text-gray-500 mt-4 italic text-center">
+                Real-time message density across 42 target nodes
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* Categories */}
         <section className="bg-white/5 rounded-[15px] p-6 mb-5 border border-white/10">
@@ -429,16 +610,24 @@ export default function Home() {
   );
 }
 
-function StatCard({ number, label, emoji }: { number: number; label: string; emoji?: string }) {
+function StatCard({ number, label, emoji, icon, suffix, sublabel }: { number: number; label: string; emoji?: string; icon?: React.ReactNode; suffix?: string; sublabel?: string }) {
   return (
-    <div className="bg-white/5 backdrop-blur-sm rounded-[15px] p-6 text-center border border-white/10">
-      <div className="text-4xl font-bold bg-gradient-to-r from-[#00d4ff] to-[#7b2cbf] bg-clip-text text-transparent">
-        {number}
+    <div className="bg-white/5 backdrop-blur-md rounded-[20px] p-6 text-center border border-white/10 relative overflow-hidden group hover:border-[#00d4ff]/50 transition-all">
+      <div className="absolute top-0 right-0 p-3 opacity-20 text-gray-400 group-hover:text-cyan-400 transition-colors">
+        {icon}
       </div>
-      <div className="text-gray-400 text-sm mt-2">
+      <div className="text-4xl font-bold bg-gradient-to-r from-[#00d4ff] to-[#7b2cbf] bg-clip-text text-transparent">
+        {number}{suffix}
+      </div>
+      <div className="text-gray-300 text-xs font-bold uppercase tracking-widest mt-2">
         {emoji && <span className="mr-1">{emoji}</span>}
         {label}
       </div>
+      {sublabel && (
+        <div className="text-[10px] text-gray-500 mt-1 uppercase tracking-tighter italic">
+          {sublabel}
+        </div>
+      )}
     </div>
   );
 }
