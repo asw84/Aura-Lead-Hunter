@@ -18,34 +18,32 @@ const TELEGRAM_HANDLE = '@SergAI_BY';                         // Telegram for co
 
 // Real leads data from scraper
 const allLeads = [
-  { handle: '@LukeKling', name: 'Luke Kling', score: 9, category: 'traffic_buyer', reason_en: 'Runs traffic via Facebook Ads to Zeydoo, discusses offers and conversions', reason_ru: 'Льёт траф на Zeydoo через Facebook Ads, обсуждает офферы и конверт', source: 'Zeydoo CPA 📣 ENG', keywords: ['ads', 'defi', 'offer'] },
-  { handle: '@RRapril', name: 'April', score: 9, category: 'traffic_buyer', reason_en: 'Looking for gaming offers for Asian geo, runs organic traffic', reason_ru: 'Ищет офферы для азиатского и индийского трафа, льёт органику', source: 'Zeydoo CPA 📣 ENG', keywords: ['cpa', 'manager', 'offer'] },
-  { handle: '@arc_abdulkareem', name: 'Abdulkareem Lawal', score: 8, category: 'traffic_buyer', reason_en: 'Runs Facebook traffic, looking for Tier 3 offers', reason_ru: 'Льёт траф с Facebook, ищет офферы для Tier 3', source: 'Zeydoo CPA 📣 ENG', keywords: ['traff', 'ads', 'offer'] },
-  { handle: '@xboss01', name: 'Mohit Pal', score: 8, category: 'traffic_buyer', reason_en: 'Has 2M daily views, runs traffic to US/UK/India, looking for dating offers', reason_ru: 'Имеет 2 млн просмотров в день, льёт траф в США, UK, Индию', source: 'Zeydoo CPA 📣 ENG', keywords: ['traff', 'manager', 'offer'] },
-  { handle: '@SenhaySpace', name: 'Andrew', score: 8, category: 'marketing_pro', reason_en: 'Works with CPA offers, helps with selection and optimization', reason_ru: 'Работает с CPA-офферами, помогает с выбором и оптимизацией', source: 'Zeydoo CPA 📣 ENG', keywords: ['promotion', 'cpa', 'affiliate'] },
-  { handle: '@Pragnesh_babariya', name: 'Pragnesh Babariya', score: 8, category: 'potential', reason_en: 'Has 5K influencers in India, looking for offers to collab', reason_ru: 'Имеет 5к инфлюенсеров в Индии, ищет офферы для коллаба', source: 'Zeydoo CPA 📣 ENG', keywords: ['manager', 'offer'] },
-  { handle: '@Zainking908', name: 'Zain', score: 8, category: 'traffic_buyer', reason_en: 'Runs traffic, discusses offers and deposits', reason_ru: 'Льёт траф, обсуждает офферы и депы', source: 'Zeydoo CPA 📣 ENG', keywords: ['offer'] },
-  { handle: '@Tp8000', name: 'Lucky', score: 8, category: 'traffic_buyer', reason_en: 'Looking for CPI campaigns, mentions app installs', reason_ru: 'Ищет траф для CPI кампаний, упоминает апп-инсталлы', source: 'Zeydoo CPA 📣 ENG', keywords: ['traff'] },
-  { handle: '@NotoriousPPC', name: 'PPC Expert', score: 8, category: 'traffic_buyer', reason_en: 'PPC expert with high volume campaigns', reason_ru: 'PPC эксперт с большими объёмами', source: 'Affiliate Chat', keywords: ['ads', 'ppc'] },
-  { handle: '@dzentraffic', name: 'Dzen Traffic', score: 8, category: 'traffic_buyer', reason_en: 'Traffic arbitrage specialist with experience', reason_ru: 'Специалист по арбитражу трафика', source: 'CPA Cash', keywords: ['traff', 'arbitrage'] },
-  { handle: '@cryptowhale', name: 'Crypto Whale', score: 8, category: 'advertiser', reason_en: 'Looking for crypto traffic sources', reason_ru: 'Ищет источники крипто-трафа', source: 'DR Cash', keywords: ['crypto', 'traffic'] },
-  { handle: '@mediabuyer_pro', name: 'Media Pro', score: 7, category: 'traffic_buyer', reason_en: 'Professional media buyer with FB experience', reason_ru: 'Профи медиабайер с опытом в FB', source: 'Traffic Cardinal', keywords: ['fb', 'ads'] },
+  { handle: '@xboss01', name: 'Mohit Pal', score: 9, category: 'traffic_buyer', reason_en: 'Has 2M daily FB traffic, seeks dating offers, runs campaigns', reason_ru: 'Имеет 2М трафа в день, ищет датинг офферы, запускает кампании', source: 'Zeydoo CPA 📣 ENG', keywords: ['offer', 'traff', 'manager'] },
+  { handle: 'ID:8313627562', name: 'Robert 098', score: 9, category: 'traffic_buyer', reason_en: 'Looking to buy extension traffic and ad placements for conversions', reason_ru: 'Ищет траф и размещение рекламы для конверта', source: 'Zeydoo CPA 📣 ENG', keywords: ['buy', 'traff', 'ads'] },
+  { handle: '@RRapril', name: 'April', score: 9, category: 'traffic_buyer', reason_en: 'Looking for high-performing CPI/CPA offers, specializes in traffic campaigns', reason_ru: 'Ищет топовые CPI/CPA офферы, специализируется на траф кампаниях', source: 'Zeydoo CPA 📣 ENG', keywords: ['cpa', 'traff', 'manager'] },
+  { handle: '@arc_abdulkareem', name: 'Abdulkareem Lawal', score: 9, category: 'traffic_buyer', reason_en: 'Looking for offers, managing traffic, and optimizing conversions', reason_ru: 'Ищет офферы, управляет трафом, оптимизирует конверт', source: 'Zeydoo CPA 📣 ENG', keywords: ['offer', 'traff', 'manager'] },
+  { handle: '@SenhaySpace', name: 'Andrew', score: 8, category: 'marketing_pro', reason_en: 'Provides offers, discusses traffic, conversions, and CPA', reason_ru: 'Предлагает офферы, обсуждает траф, конверт и CPA', source: 'Zeydoo CPA 📣 ENG', keywords: ['affiliate', 'ads', 'cpa'] },
+  { handle: '@realsteel2022', name: 'RealSteel', score: 8, category: 'traffic_buyer', reason_en: 'Looking for offers, running FB/TT ads, experienced in IM', reason_ru: 'Ищет офферы, запускает рекламу в FB/TT, опыт в IM', source: 'Zeydoo CPA 📣 ENG', keywords: ['ads', 'traff', 'manager'] },
+  { handle: '@Zainking908', name: 'Zain', score: 8, category: 'traffic_buyer', reason_en: 'Discusses offers, conversions, and profits from traffic', reason_ru: 'Обсуждает офферы, конверт и прибыль с трафа', source: 'Zeydoo CPA 📣 ENG', keywords: ['offer', 'traff'] },
+  { handle: '@Tp8000', name: 'Lucky', score: 8, category: 'traffic_buyer', reason_en: 'Actively seeking CPI campaigns and traffic sources', reason_ru: 'Ищет CPI кампании и источники трафика', source: 'Zeydoo CPA 📣 ENG', keywords: ['traff', 'cpi'] },
+  { handle: '@Pragnesh_babariya', name: 'Pragnesh Babariya', score: 8, category: 'potential', reason_en: 'Looking for offers and mentions influencers', reason_ru: 'Ищет офферы, упоминает инфлюенсеров', source: 'Zeydoo CPA 📣 ENG', keywords: ['offer', 'influencer'] },
 ];
 
 const stats = {
-  chatsProcessed: 9,
-  usersAnalyzed: 100,
-  leadsFound: 93,
-  hotLeads: 48,
+  chatsProcessed: 15,
+  usersAnalyzed: 450,
+  leadsFound: 112,
+  hotLeads: 62,
 };
 
 const categories = [
-  { name: 'potential', count: 76, icon: '🔮' },
-  { name: 'traffic_buyer', count: 12, icon: '💰' },
-  { name: 'not_lead', count: 7, icon: '❌' },
-  { name: 'marketing_pro', count: 4, icon: '🎯' },
+  { name: 'potential', count: 72, icon: '🔮' },
+  { name: 'traffic_buyer', count: 28, icon: '💰' },
+  { name: 'marketing_pro', count: 8, icon: '🎯' },
+  { name: 'agency_owner', count: 3, icon: '🏢' },
   { name: 'influencer', count: 1, icon: '⭐' },
 ];
+
 
 export default function Home() {
   const [lang, setLang] = useState<'en' | 'ru'>('en');

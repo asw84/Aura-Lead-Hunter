@@ -61,6 +61,7 @@ nft_marketing_chat
 # ===== DISCOVERY MODE FINDS =====
 # Add new discovered chats here after each run
 # (Auto-populated by Discovery Mode)
+cpa_arbitraj_chat
 
 # ===== SESSION 6: 🇺🇦 Ukrainian Arbitrage & Jobs =====
 # Ukrainian-speaking communities with lots of job postings
