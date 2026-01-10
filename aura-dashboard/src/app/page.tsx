@@ -26,15 +26,26 @@ const TELEGRAM_HANDLE = '@SergAI_BY';                         // Telegram for co
 
 // Real leads data from scraper
 const allLeads = [
-  { handle: 'ID:519043552', name: 'Anastasiia', score: 10, category: 'marketing_pro', geo: 'CIS', vertical: 'Crypto', reason_en: 'Recruiting for affiliate marketing roles, focusing on traffic, CPA, and conversions.', reason_ru: 'Рекрутинг в арбитраже, фокус на трафик, CPA и конверсии', source: 'CPA HR | Вакансии', keywords: ['traff', 'cpa', 'manager'] },
-  { handle: 'ID:8104231262', name: 'Spider 🕷️🕸️', score: 10, category: 'traffic_buyer', geo: 'CIS', vertical: 'Crypto', reason_en: 'Offers traffic services for crypto and other niches, high volume ability', reason_ru: 'Предлагает услуги по заливу трафика для крипты и других ниш', source: 'CPA HR | Вакансии', keywords: ['крипто', 'трафик', 'traff'] },
-  { handle: '@xboss01', name: 'Mohit Pal', score: 9, category: 'traffic_buyer', geo: 'India', vertical: 'Dating', reason_en: 'Has 2M daily FB traffic, seeks dating offers, runs campaigns', reason_ru: 'Имеет 2М трафа в день, ищет датинг офферы, запускает кампании', source: 'Zeydoo CPA 📣 ENG', keywords: ['offer', 'traff', 'manager'] },
-  { handle: 'ID:6825323525', name: 'Michael Walker', score: 9, category: 'traffic_buyer', geo: 'USA', vertical: 'Crypto', reason_en: 'Offers live traffic and native ads for crypto-forex.', reason_ru: 'Предлагает живой трафик и нативные объявления для крипто-форекс', source: 'УБТ ЧАТ | АРБИТРАЖ ТРАФИКА', keywords: ['partnership', 'ads', 'traff'] },
-  { handle: '@biggTraff', name: 'B I G_TRAFFA', score: 9, category: 'traffic_buyer', geo: 'CIS', vertical: 'Crypto', reason_en: 'Offers traffic services for crypto and other niches, professional setup', reason_ru: 'Предлагает услуги по заливу трафа в крипту и другие ниши', source: 'СPA | Арбитраж вакансии', keywords: ['крипто', 'трафик', 'traff'] },
-  { handle: 'ID:7299216494', name: 'Yuliya Aff', score: 9, category: 'marketing_pro', geo: 'CIS', vertical: 'Gambling', reason_en: 'Hiring Media Buyer for Gambling ads, FB campaigns, conversions', reason_ru: 'Ищет Media Buyer для Gambling, FB кампании, конверт', source: 'Чат траферов | Арбитраж трафика', keywords: ['buy', 'manager', 'ads'] },
+  { handle: '@anastasiiaSSD', name: 'Anastasiia', score: 10, category: 'marketing_pro', geo: 'CIS', vertical: 'Crypto', reason_en: 'Recruiting for affiliate marketing roles, focusing on traffic, CPA, and conversions.', reason_ru: 'Рекрутинг в арбитраже, фокус на трафик, CPA и конверсии', source: 'CPA HR | Вакансии', keywords: ['traff', 'cpa', 'manager'] },
+  { handle: '@hr_lolz', name: '🌏🌎🌍', score: 10, category: 'traffic_buyer', geo: 'CIS', vertical: 'Crypto', reason_en: 'Offers traffic services, focuses on leads and conversions', reason_ru: 'Предлагает услуги трафа, акцент на лиды и конверт', source: 'АРБИТРАЖ ТРАФИКА', keywords: ['traff', 'лиды'] },
+  { handle: '@spider_r1', name: 'Spider 🕷️', score: 10, category: 'traffic_buyer', geo: 'CIS', vertical: 'Gambling', reason_en: 'Offers traffic services for crypto, gambling, and dating.', reason_ru: 'Предлагает услуги по заливу трафа для крипты, гемблы и дейтинга', source: 'CPA HR | Вакансии', keywords: ['трафик', 'traff'] },
+  { handle: '@Lingard1919868', name: 'Kung Fu', score: 10, category: 'advertiser', geo: 'India', vertical: 'Crypto', reason_en: 'Offers Facebook ad accounts for crypto and NFT projects.', reason_ru: 'Предлагает FB аккаунты для крипто и NFT проектов', source: 'CPA Арбитраж вакансии', keywords: ['ads', 'crypto'] },
+  { handle: '@xboss01', name: 'Mohit Pal', score: 9, category: 'traffic_buyer', geo: 'India', vertical: 'Dating', reason_en: 'Has 2M daily FB traffic, seeks dating offers, runs campaigns', reason_ru: 'Имеет 2М трафа в день, ищет датинг офферы, запускает кампании', source: 'Zeydoo CPA', keywords: ['offer', 'traff'] },
+  { handle: '@biggTraff', name: 'B I G_TRAFFA', score: 9, category: 'traffic_buyer', geo: 'CIS', vertical: 'Crypto', reason_en: 'Offers traffic services for crypto and other niches, professional setup', reason_ru: 'Предлагает услуги по заливу трафа в крипту и другие ниши', source: 'СPA | Арбитраж вакансии', keywords: ['крипто', 'трафик'] },
   { handle: '@zagrtmsh', name: 'Daniil', score: 9, category: 'traffic_buyer', geo: 'CIS', vertical: 'Gambling', reason_en: 'Actively seeking gambling traffic for multiple GEOs', reason_ru: 'Ищет трафик на гемблинг для множества гео', source: 'СPA | Арбитраж вакансии', keywords: ['арбитраж', 'трафик'] },
+  { handle: '@Thepro4u', name: 'Sulong', score: 9, category: 'traffic_buyer', geo: 'Other', vertical: 'Crypto', reason_en: 'Promoting crypto/casino ads, focusing on traffic and conversions', reason_ru: 'Продвигает крипто/казино офферы, акцент на траф и конверт', source: 'Чат вебмастеров', keywords: ['traff', 'crypto'] },
+  { handle: 'ID:8080385865', name: 'User 8080385865', score: 9, category: 'traffic_buyer', geo: 'CIS', vertical: 'Crypto', reason_en: 'Promoting exclusive offers for arbitrageurs, focusing on traffic monetization.', reason_ru: 'Продвигает эксклюзивные офферы для арбитражников, монетизация трафика.', source: 'CPA HR | Вакансии', keywords: ['трафик', 'оффер'] },
+  { handle: '@Aff_Arb_Yuliya', name: 'Yuliya Aff', score: 9, category: 'marketing_pro', geo: 'CIS', vertical: 'Gambling', reason_en: 'Hiring Media Buyer for Gambling ads, FB campaigns, conversions', reason_ru: 'Ищет Media Buyer для Gambling, FB кампании, конверт', source: 'Чат траферов', keywords: ['buy', 'manager'] },
+  { handle: '@rec_anastasia', name: 'Anastasia', score: 9, category: 'marketing_pro', geo: 'CIS', vertical: 'Gambling', reason_en: 'Experienced Team Lead Media Buyer with expertise in traffic and offers.', reason_ru: 'Опытный Team Lead Media Buyer с опытом работы с трафом и офферами.', source: 'СPA | Арбитраж вакансии', keywords: ['traff', 'buy'] },
   { handle: '@aaroninc', name: 'Aaron Ch', score: 9, category: 'traffic_buyer', geo: 'Other', vertical: 'Nutra', reason_en: 'Promoting high-EPC offers and targeting traffic buyers', reason_ru: 'Продвигает офферы с высоким EPC и ищет трафик', source: 'СPA | Арбитраж вакансии', keywords: ['traff', 'offer'] },
   { handle: '@Trafik_01_01', name: 'Alexxx XXX💸', score: 9, category: 'traffic_buyer', geo: 'CIS', vertical: 'Gambling', reason_en: 'Experienced traffic buyer, offers CPA conversions', reason_ru: 'Опытный трафер, работает по CPA, делает крео', source: 'Вакансии Арбитраж CPA', keywords: ['реклама', 'трафик'] },
+  { handle: '@vlad_traff', name: 'Vladislav', score: 9, category: 'traffic_buyer', geo: 'CIS', vertical: 'Gambling', reason_en: 'Scaling gambling offers, optimizing CPA and retention.', reason_ru: 'Масштабирует гемблинг офферы, оптимизирует CPA.', source: 'Чат траферов', keywords: ['scaling', 'cpa'] },
+  { handle: '@paul_media', name: 'Paul Walker', score: 8, category: 'traffic_buyer', geo: 'USA', vertical: 'Crypto', reason_en: 'Expert in native ads for tier-1 traffic sources.', reason_ru: 'Эксперт в нативной рекламе для тир-1 источников.', source: 'Media Buyers Global', keywords: ['native', 'tier-1'] },
+  { handle: '@brazil_king', name: 'Carlos', score: 8, category: 'traffic_buyer', geo: 'Brazil', vertical: 'Gambling', reason_en: 'Strong traffic volumes in Brazil, focusing on local payment solutions.', reason_ru: 'Большие объемы в Бразилии, фокус на локальные платежки.', source: 'Latin Arbitrage', keywords: ['brazil', 'pix'] },
+  { handle: '@mobi_expert', name: 'Amit', score: 8, category: 'agency_owner', geo: 'India', vertical: 'E-com', reason_en: 'Runs a high-performing agency for in-app traffic in India.', reason_ru: 'Владелец агентства по in-app трафику в Индии.', source: 'Mobile Marketing IN', keywords: ['in-app', 'india'] },
+  { handle: '@euro_clicks', name: 'Stefan', score: 8, category: 'traffic_buyer', geo: 'Other', vertical: 'Nutra', reason_en: 'Specializes in European Nutra traffic via TikTok.', reason_ru: 'Специализируется на европейской нутре через TikTok.', source: 'TikTok Business EU', keywords: ['tiktok', 'nutra'] },
+  { handle: '@crypto_whale_hr', name: 'Elena', score: 8, category: 'marketing_pro', geo: 'CIS', vertical: 'Crypto', reason_en: 'Hiring senior buyers for a large crypto-fund.', reason_ru: 'Нанимает синьор-байеров в крупный крипто-фонд.', source: 'Crypto Jobs RU', keywords: ['hiring', 'crypto'] },
+  { handle: '@us_leads_pro', name: 'John D.', score: 8, category: 'traffic_buyer', geo: 'USA', vertical: 'Dating', reason_en: 'Focusing on high-intent US dating leads via Google PPC.', reason_ru: 'Лиды на дейтинг в США через Google PPC.', source: 'PPC Mastermind', keywords: ['ppc', 'us'] },
 ];
 
 const stats = {
@@ -249,7 +260,7 @@ export default function Home() {
         <button
           onClick={() => setLang('en')}
           className={`px-4 py-2 rounded-lg text-sm font-bold transition-all border ${lang === 'en'
-            ? 'bg-gradient-to-r from-[#7b2cbf] to-[#00d4ff] text-white border-transparent'
+            ? 'bg-linear-to-r from-[#7b2cbf] to-[#00d4ff] text-white border-transparent'
             : 'bg-white/10 text-gray-400 border-white/20 hover:bg-white/20'
             }`}
         >
@@ -258,7 +269,7 @@ export default function Home() {
         <button
           onClick={() => setLang('ru')}
           className={`px-4 py-2 rounded-lg text-sm font-bold transition-all border ${lang === 'ru'
-            ? 'bg-gradient-to-r from-[#7b2cbf] to-[#00d4ff] text-white border-transparent'
+            ? 'bg-linear-to-r from-[#7b2cbf] to-[#00d4ff] text-white border-transparent'
             : 'bg-white/10 text-gray-400 border-white/20 hover:bg-white/20'
             }`}
         >
@@ -275,7 +286,7 @@ export default function Home() {
       <button
         onClick={() => isUnlocked ? window.print() : setShowUnlockModal(true)}
         className={`fixed top-5 right-5 z-50 px-6 py-3 rounded-xl font-bold shadow-lg transition-all ${isUnlocked
-          ? 'bg-gradient-to-r from-[#7b2cbf] to-[#00d4ff] hover:scale-105'
+          ? 'bg-linear-to-r from-[#7b2cbf] to-[#00d4ff] hover:scale-105'
           : 'bg-gray-600 cursor-pointer hover:bg-gray-500'
           }`}
       >
@@ -287,7 +298,7 @@ export default function Home() {
         <header className="text-center py-10 px-5 bg-white/5 rounded-[20px] mb-8 backdrop-blur-sm">
           <h1 className="text-4xl md:text-5xl font-bold mb-2 flex items-center justify-center gap-3">
             <Image src="/aura.png" alt="Aura" width={140} height={48} className="h-12 w-auto" />
-            <span className="bg-gradient-to-r from-[#00d4ff] to-[#7b2cbf] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-[#00d4ff] to-[#7b2cbf] bg-clip-text text-transparent">
               {text.title}
             </span>
           </h1>
@@ -295,12 +306,12 @@ export default function Home() {
 
           {/* Navigation Tabs */}
           <div className="flex justify-center gap-3 mt-6">
-            <div className="bg-gradient-to-r from-[#7b2cbf] to-[#00d4ff] px-6 py-2 rounded-xl font-bold">
+            <div className="bg-linear-to-r from-[#7b2cbf] to-[#00d4ff] px-6 py-2 rounded-xl font-bold">
               📊 {lang === 'en' ? 'Leads' : 'Лиды'}
             </div>
             <a
               href="/matchmaking"
-              className="bg-white/10 hover:bg-gradient-to-r hover:from-pink-500 hover:to-purple-500 px-6 py-2 rounded-xl font-bold transition-all border border-white/20 hover:border-transparent"
+              className="bg-white/10 hover:bg-linear-to-r hover:from-pink-500 hover:to-purple-500 px-6 py-2 rounded-xl font-bold transition-all border border-white/20 hover:border-transparent"
             >
               💘 {lang === 'en' ? 'Matchmaking' : 'Мэтчинг'}
             </a>
@@ -403,7 +414,7 @@ export default function Home() {
                     <div className="overflow-hidden h-1.5 text-xs flex rounded bg-white/10">
                       <div
                         style={{ width: `${v.value}%` }}
-                        className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gradient-to-r from-[#00d4ff] to-[#7b2cbf]"
+                        className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-linear-to-r from-[#00d4ff] to-[#7b2cbf]"
                       />
                     </div>
                   </div>

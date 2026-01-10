@@ -285,6 +285,214 @@ const matchesData: Match[] = [
             },
         ],
     },
+    {
+        employer: {
+            contact: '@Old_bishkek',
+            category: 'potential_employer',
+            language: '🇷🇺 RU',
+            reason: 'Ищет обработчика трафика для трейдинга',
+            conditions: 'Revenue Share',
+            vertical: 'Crypto/Finance',
+        },
+        buyers: [
+            {
+                buyer: {
+                    contact: 'ID:7486996791',
+                    name: 'Alexxx XXX💸',
+                    score: 9,
+                    vertical: 'General',
+                    trafficType: 'Mixed',
+                    volume: 'Medium',
+                    reason: 'Опытный трафер, работает с CPA, делает крео под рекламу',
+                },
+                matchScore: 89,
+                messageToEmployer: 'Нашел специалиста Alexxx XXX💸 для вашего проекта по трейдингу. Работает с CPA и сам делает креативы. 📊',
+                messageToBuyer: 'Alexxx, @Old_bishkek ищет обработчика на трейдинг. Твой опыт с CPA и крео здесь будет очень кстати! 📈',
+            },
+        ],
+    },
+    {
+        employer: {
+            contact: '@reklama_hunter',
+            category: 'team_lead',
+            language: '🇷🇺 RU',
+            reason: 'Ищет байера с опытом в крипте, предлагает ставку и %',
+            conditions: 'Salary + %',
+            vertical: 'Crypto',
+        },
+        buyers: [
+            {
+                buyer: {
+                    contact: 'ID:8080385865',
+                    name: 'User 8080385865',
+                    score: 9,
+                    vertical: 'General',
+                    trafficType: 'Mixed',
+                    volume: '-',
+                    reason: 'Продвигает эксклюзивные офферы для арбитражников, монетизация трафика.',
+                },
+                matchScore: 99,
+                messageToEmployer: 'Для вашего крипто-направления есть байер с опытом в эксклюзивных офферах. Готов обсуждать ставку. 🪙',
+                messageToBuyer: 'User 8080385865, @reklama_hunter предлагает фиксированную ставку + % за крипто-трафик. Хорошая возможность! 💰',
+            },
+        ],
+    },
+    {
+        employer: {
+            contact: '@hr_nastasy',
+            category: 'agency_owner',
+            language: '🇷🇺 RU',
+            reason: 'Тимлид ищет байеров и менеджеров для своей тимы.',
+            conditions: 'Full Team Support',
+            vertical: 'General',
+        },
+        buyers: [
+            {
+                buyer: {
+                    contact: 'ID:5751031830',
+                    name: '🌏🌎🌍',
+                    score: 10,
+                    vertical: 'General',
+                    trafficType: 'FB/Google',
+                    volume: 'Scaling',
+                    reason: 'Предлагает услуги трафа, акцент на лиды и конверт',
+                },
+                matchScore: 100,
+                messageToEmployer: 'Здравствуйте! Есть топовый байер (Score 10/10) с экспертизой в FB/Google. Идеально для масштабирования вашей команды. 🚀',
+                messageToBuyer: 'Нашел для тебя Agency Owner-а @hr_nastasy. Ищут именно таких профи для фулл-тайм партнерства. 🏢',
+            },
+        ],
+    },
+    {
+        employer: {
+            contact: '@Daria_HRik',
+            category: 'agency_owner',
+            language: '🇷🇺 RU',
+            reason: 'Публикует вакансии для байеров и саппорта, активно расширяется.',
+            conditions: 'Flexible Roles',
+            vertical: 'Gambling',
+        },
+        buyers: [
+            {
+                buyer: {
+                    contact: 'ID:7918628509',
+                    name: 'Vladislav',
+                    score: 9,
+                    vertical: 'Gambling',
+                    trafficType: 'Mixed',
+                    volume: 'High',
+                    reason: 'Опытный Media Buyer, работающий с трафом, масштабирует офферы.',
+                },
+                matchScore: 99,
+                messageToEmployer: 'Дарья, добрый день! Рекомендую Владислава — эксперт по масштабированию Gambling офферов. 🎰',
+                messageToBuyer: 'Влад, @Daria_HRik сейчас активно набирает байеров в гемблинг. Твой опыт масштабирования — именно то, что им нужно. 📈',
+            },
+        ],
+    },
+    {
+        employer: {
+            contact: '@BaroVlad',
+            category: 'team_lead',
+            language: '🇷🇺 RU',
+            reason: 'Тимлид ищет байеров и координаторов, предлагает ЗП',
+            conditions: 'Fixed Salary',
+            vertical: 'General',
+        },
+        buyers: [
+            {
+                buyer: {
+                    contact: 'ID:8263238501',
+                    name: 'Anastasia',
+                    score: 9,
+                    vertical: 'Gambling',
+                    trafficType: 'Mixed',
+                    volume: '-',
+                    reason: 'Опытный Team Lead Media Buyer с опытом работы с трафом и офферами.',
+                },
+                matchScore: 92,
+                messageToEmployer: 'Для вашей команды есть опытный лид байер Анастасия. Закроет вопросы координации и залива. 👩‍💼',
+                messageToBuyer: 'Анастасия, @BaroVlad ищет байеров на фиксированную ЗП. Хороший вариант для стабильности. 🏦',
+            },
+        ],
+    },
+    {
+        employer: {
+            contact: '@gelukster',
+            category: 'agency_owner',
+            language: '🇺🇸 EN',
+            reason: 'Looking for senior media buyers for high-ticket offers',
+            conditions: 'High Commissions',
+            vertical: 'Niche/Premium',
+        },
+        buyers: [
+            {
+                buyer: {
+                    contact: 'ID:6368565418',
+                    name: 'Sulong',
+                    score: 9,
+                    vertical: 'Crypto',
+                    trafficType: 'Mixed',
+                    volume: '-',
+                    reason: 'Promotes crypto/casino offers, focus on traffic and convert',
+                },
+                matchScore: 94,
+                messageToEmployer: 'Hello! Sulong is a senior buyer with great results in high-ticket crypto/casino niches. 💎',
+                messageToBuyer: 'Sulong, @gelukster is looking for seniors for high-ticket offers. This could be a very profitable match! 💰',
+            },
+        ],
+    },
+    {
+        employer: {
+            contact: '@Tp8000',
+            category: 'team_lead',
+            language: '🇷🇺 RU',
+            reason: 'Ищет байеров для работы с бурж гемблой',
+            conditions: 'Burge Ready',
+            vertical: 'Gambling',
+        },
+        buyers: [
+            {
+                buyer: {
+                    contact: 'ID:8104231262',
+                    name: 'Spider 🕷️🕸️',
+                    score: 10,
+                    vertical: 'Dating',
+                    trafficType: 'Mixed',
+                    volume: '-',
+                    reason: 'Предлагает услуги по заливу трафа для крипты и других ниш',
+                },
+                matchScore: 88,
+                messageToEmployer: 'Привет! Есть Spider (Score 10/10). Опыт с бурж трафиком в профильных нишах. 🕷️',
+                messageToBuyer: 'Spider, @Tp8000 ищет спецов под бурж гемблу. Твой подход к заливу им подойдет. 🌍',
+            },
+        ],
+    },
+    {
+        employer: {
+            contact: '@aliona_nda',
+            category: 'agency_owner',
+            language: '🇷🇺 RU',
+            reason: 'Ищет топовых байеров для долгосрочного партнерства',
+            conditions: 'Equity / Profit Share',
+            vertical: 'General',
+        },
+        buyers: [
+            {
+                buyer: {
+                    contact: '@xboss01',
+                    name: 'Mohit Pal',
+                    score: 9,
+                    vertical: 'Dating',
+                    trafficType: 'FB',
+                    volume: '2M daily',
+                    reason: 'Has 2M daily FB traffic, seeks dating offers, runs campaigns',
+                },
+                matchScore: 97,
+                messageToEmployer: 'Алена, у меня есть Mohit Pal с объемами 2M daily. Идеальный партнер для долгосрочки. 🤝',
+                messageToBuyer: 'Mohit, @aliona_nda is looking for TOP partners for long-term profit share. With your 2M traffic, you are their #1 choice. 💎',
+            },
+        ],
+    },
 ];
 
 
