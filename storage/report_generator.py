@@ -2,6 +2,7 @@
 Aura Lead Hunter - HTML Report Generator
 ==========================================
 Generates beautiful HTML reports from lead analysis results.
+Supports EN/RU language switching.
 """
 
 from pathlib import Path
@@ -18,6 +19,7 @@ def generate_html_report(
 ) -> str:
     """
     Generate a beautiful HTML report from lead analysis results.
+    Includes EN/RU language toggle.
     
     Returns:
         Path to generated HTML file
@@ -41,9 +43,20 @@ def generate_html_report(
     warm_leads = [l for l in sorted_leads if 5 <= l.score < 7]
     cold_leads = [l for l in sorted_leads if l.score < 5]
     
+    # Category icons
+    cat_icons = {
+        'traffic_buyer': '💰',
+        'advertiser': '📢',
+        'influencer': '⭐',
+        'community_owner': '👑',
+        'marketing_pro': '🎯',
+        'potential': '🔮',
+        'not_lead': '❌'
+    }
+    
     # Generate HTML
     html = f"""<!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,6 +79,37 @@ def generate_html_report(
         .container {{
             max-width: 1200px;
             margin: 0 auto;
+        }}
+        
+        .lang-toggle {{
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            gap: 5px;
+            z-index: 1001;
+        }}
+        
+        .lang-btn {{
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #888;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.3s;
+        }}
+        
+        .lang-btn:hover {{
+            background: rgba(255,255,255,0.2);
+        }}
+        
+        .lang-btn.active {{
+            background: linear-gradient(45deg, #7b2cbf, #00d4ff);
+            color: white;
+            border-color: transparent;
         }}
         
         .header {{
@@ -276,6 +320,13 @@ def generate_html_report(
             transform: scale(1.05);
         }}
         
+        /* Hide elements based on language */
+        [data-lang-ru] {{ display: none; }}
+        [data-lang-en] {{ display: inline; }}
+        
+        body.lang-ru [data-lang-ru] {{ display: inline; }}
+        body.lang-ru [data-lang-en] {{ display: none; }}
+        
         @media print {{
             body {{
                 background: white !important;
@@ -283,7 +334,7 @@ def generate_html_report(
                 padding: 10px !important;
             }}
             
-            .pdf-btn {{
+            .pdf-btn, .lang-toggle {{
                 display: none !important;
             }}
             
@@ -349,49 +400,66 @@ def generate_html_report(
     </style>
 </head>
 <body>
-    <button class="pdf-btn" onclick="window.print()">📄 Сохранить PDF</button>
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+        <button class="lang-btn" onclick="setLang('ru')" id="btn-ru">RU</button>
+    </div>
+    
+    <button class="pdf-btn" onclick="window.print()">
+        <span data-lang-en>📄 Save PDF</span>
+        <span data-lang-ru>📄 Сохранить PDF</span>
+    </button>
     
     <div class="container">
         <div class="header">
             <h1>🎯 AURA LEAD HUNTER</h1>
-            <p class="subtitle">Отчёт от {datetime.now().strftime('%d.%m.%Y %H:%M')}</p>
+            <p class="subtitle">
+                <span data-lang-en>Report generated: {datetime.now().strftime('%d.%m.%Y %H:%M')}</span>
+                <span data-lang-ru>Отчёт от {datetime.now().strftime('%d.%m.%Y %H:%M')}</span>
+            </p>
         </div>
         
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="number">{chats_processed}</div>
-                <div class="label">Чатов обработано</div>
+                <div class="label">
+                    <span data-lang-en>Chats Processed</span>
+                    <span data-lang-ru>Чатов обработано</span>
+                </div>
             </div>
             <div class="stat-card">
                 <div class="number">{total}</div>
-                <div class="label">Пользователей</div>
+                <div class="label">
+                    <span data-lang-en>Users Analyzed</span>
+                    <span data-lang-ru>Пользователей</span>
+                </div>
             </div>
             <div class="stat-card">
                 <div class="number">{len(positive)}</div>
-                <div class="label">Лидов найдено</div>
+                <div class="label">
+                    <span data-lang-en>Leads Found</span>
+                    <span data-lang-ru>Лидов найдено</span>
+                </div>
             </div>
             <div class="stat-card">
                 <div class="number">{len(hot_leads)}</div>
-                <div class="label">🔥 Горячих</div>
+                <div class="label">
+                    <span data-lang-en>🔥 Hot Leads</span>
+                    <span data-lang-ru>🔥 Горячих</span>
+                </div>
             </div>
         </div>
         
         <div class="section">
-            <h2>📊 Категории</h2>
+            <h2>
+                <span data-lang-en>📊 Categories</span>
+                <span data-lang-ru>📊 Категории</span>
+            </h2>
             <div class="category-grid">
 """
     
     # Category items
-    cat_icons = {
-        'traffic_buyer': '💰',
-        'advertiser': '📢',
-        'influencer': '⭐',
-        'community_owner': '👑',
-        'marketing_pro': '🎯',
-        'potential': '🔮',
-        'not_lead': '❌'
-    }
-    
     for cat, count in sorted(categories.items(), key=lambda x: x[1], reverse=True):
         icon = cat_icons.get(cat, '📌')
         html += f"""
@@ -410,12 +478,20 @@ def generate_html_report(
     if hot_leads:
         html += """
         <div class="section">
-            <h2>🔥 Горячие лиды (Score 7-10)</h2>
+            <h2>
+                <span data-lang-en>🔥 Hot Leads (Score 7-10)</span>
+                <span data-lang-ru>🔥 Горячие лиды (Score 7-10)</span>
+            </h2>
 """
         for lead in hot_leads[:20]:
             handle = f"@{lead.username}" if lead.username else f"ID:{lead.user_id}"
             tg_link = f"https://t.me/{lead.username}" if lead.username else "#"
             keywords_html = "".join([f'<span class="keyword">{k}</span>' for k in (lead.matched_keywords or [])[:5]])
+            icon = cat_icons.get(lead.category, '')
+            
+            # Get bilingual reasons
+            reason_en = getattr(lead, 'reason_en', lead.reason) or lead.reason
+            reason_ru = getattr(lead, 'reason_ru', lead.reason) or lead.reason
             
             html += f"""
             <div class="lead-card hot">
@@ -423,9 +499,12 @@ def generate_html_report(
                     <a href="{tg_link}" target="_blank" class="lead-handle tg-link">{handle}</a>
                     <span class="lead-score">{lead.score}/10</span>
                 </div>
-                <span class="lead-category">{cat_icons.get(lead.category, '')} {lead.category}</span>
+                <span class="lead-category">{icon} {lead.category}</span>
                 <span style="color:#888">{lead.display_name or ''}</span>
-                <p class="lead-summary">"{lead.reason}"</p>
+                <p class="lead-summary">
+                    <span data-lang-en>"{reason_en}"</span>
+                    <span data-lang-ru>"{reason_ru}"</span>
+                </p>
                 <div class="lead-keywords">{keywords_html}</div>
                 <p class="lead-source">📍 {lead.source_chat}</p>
             </div>
@@ -436,12 +515,19 @@ def generate_html_report(
     if warm_leads:
         html += """
         <div class="section">
-            <h2>🟡 Тёплые лиды (Score 5-6)</h2>
+            <h2>
+                <span data-lang-en>🟡 Warm Leads (Score 5-6)</span>
+                <span data-lang-ru>🟡 Тёплые лиды (Score 5-6)</span>
+            </h2>
 """
         for lead in warm_leads[:30]:
             handle = f"@{lead.username}" if lead.username else f"ID:{lead.user_id}"
             tg_link = f"https://t.me/{lead.username}" if lead.username else "#"
             keywords_html = "".join([f'<span class="keyword">{k}</span>' for k in (lead.matched_keywords or [])[:3]])
+            
+            # Get bilingual reasons
+            reason_en = getattr(lead, 'reason_en', lead.reason) or lead.reason
+            reason_ru = getattr(lead, 'reason_ru', lead.reason) or lead.reason
             
             html += f"""
             <div class="lead-card warm">
@@ -450,18 +536,52 @@ def generate_html_report(
                     <span class="lead-score">{lead.score}/10</span>
                 </div>
                 <span class="lead-category">{lead.category}</span>
-                <p class="lead-summary">"{lead.reason}"</p>
+                <p class="lead-summary">
+                    <span data-lang-en>"{reason_en}"</span>
+                    <span data-lang-ru>"{reason_ru}"</span>
+                </p>
                 <div class="lead-keywords">{keywords_html}</div>
                 <p class="lead-source">📍 {lead.source_chat}</p>
             </div>
 """
         html += "        </div>\n"
     
+    # Footer and JavaScript
     html += f"""
         <div class="footer">
-            <p>Generated by Aura Lead Hunter 2.0 | {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
+            <p>
+                <span data-lang-en>Generated by Aura Lead Hunter 2.0 | {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</span>
+                <span data-lang-ru>Создано Aura Lead Hunter 2.0 | {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</span>
+            </p>
         </div>
     </div>
+    
+    <script>
+        function setLang(lang) {{
+            const body = document.body;
+            const btnEn = document.getElementById('btn-en');
+            const btnRu = document.getElementById('btn-ru');
+            
+            if (lang === 'ru') {{
+                body.classList.add('lang-ru');
+                btnRu.classList.add('active');
+                btnEn.classList.remove('active');
+            }} else {{
+                body.classList.remove('lang-ru');
+                btnEn.classList.add('active');
+                btnRu.classList.remove('active');
+            }}
+            
+            // Save preference
+            localStorage.setItem('aura_lang', lang);
+        }}
+        
+        // Load saved language preference
+        document.addEventListener('DOMContentLoaded', function() {{
+            const savedLang = localStorage.getItem('aura_lang') || 'en';
+            setLang(savedLang);
+        }});
+    </script>
 </body>
 </html>
 """

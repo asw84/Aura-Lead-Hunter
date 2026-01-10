@@ -20,9 +20,11 @@ from utils.logger import AuraLogger, ThoughtType
 
 @dataclass
 class LeadAnalysis:
-    """Result of AI intent analysis - Hunter 2.0."""
+    """Result of AI intent analysis - Hunter 2.0 Bilingual."""
     is_lead: bool
-    reason: str
+    reason: str  # Default reason (for backward compatibility)
+    reason_en: str  # English summary
+    reason_ru: str  # Russian summary
     confidence: float  # Kept for backward compatibility
     score: int  # NEW: 1-10 score
     category: str  # NEW: lead category
@@ -40,6 +42,12 @@ class LeadAnalysis:
         if not self.analyzed_at:
             self.analyzed_at = datetime.now().isoformat()
     
+    def get_reason(self, lang: str = "en") -> str:
+        """Get reason in specified language."""
+        if lang == "ru":
+            return self.reason_ru or self.reason
+        return self.reason_en or self.reason
+    
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
     
@@ -47,49 +55,55 @@ class LeadAnalysis:
         return json.dumps(self.to_dict(), ensure_ascii=False, indent=2)
 
 
-# Hunter 2.0 System prompt - Headhunter for crypto affiliate network
-SYSTEM_PROMPT = """Ты — хедхантер для крипто-партнёрки. Твоя задача — находить лидов среди пользователей Telegram.
+# Hunter 2.0 System prompt - BILINGUAL (returns both EN and RU)
+BILINGUAL_SYSTEM_PROMPT = """You are a headhunter for a crypto affiliate network. Your task is to find leads among Telegram users.
 
-АНАЛИЗИРУЙ ДАННЫЕ ПОЛЬЗОВАТЕЛЯ (Сообщения + Bio) И ОТМЕЧАЙ КАК ЛИД ЕСЛИ ОН:
+ANALYZE USER DATA (Messages + Bio) AND MARK AS LEAD IF THEY ARE:
 
 🎯 HIGH-VALUE LEADS (score 8-10):
-- Инфлюенсер с аудиторией (владелец канала, блогер)
-- Баер трафика/арбитражник ищущий офферы
-- Рекламодатель который закупает размещения
-- Овнер комьюнити/админ с активом
-- Маркетолог или CMO крипто-проекта
+- Influencer with audience (channel owner, blogger)
+- Traffic buyer/arbitrageur looking for offers
+- Advertiser purchasing ad placements
+- Community owner/admin with assets
+- Marketer or CMO of crypto project
 
 ✅ MEDIUM LEADS (score 5-7):
-- Активный участник спрашивающий про рекламу/трафик
-- Кто-то ищущий партнёров или коллабы
-- Обсуждает партнёрки, CPA, офферы
-- Упоминает что льёт траф или имеет аудиторию
-- Даже если просто СПРАШИВАЕТ про рекламу — это лид!
+- Active participant asking about ads/traffic
+- Someone looking for partners or collaborations
+- Discusses affiliate programs, CPA, offers
+- Mentions running traffic or having audience
+- Even if just ASKING about advertising — it's a lead!
 
 ❌ NOT A LEAD (score 1-4):
-- Обычные юзеры без бизнес-интента
-- Спамеры без реальной аудитории
-- Боты
-- Просто болтают
+- Regular users without business intent
+- Spammers without real audience
+- Bots
+- Just chatting
 
-ВАЖНО: Будь ИНКЛЮЗИВЕН! Любой намёк на:
-- Покупку/продажу трафа
-- Залив рекламы
-- Владение каналом
-- Поиск офферов
-- Опыт в крипто-маркетинге
-→ ОТМЕЧАЙ КАК ЛИД!
+IMPORTANT: Be INCLUSIVE! Any hint of:
+- Buying/selling traffic
+- Running ads
+- Owning a channel
+- Looking for offers
+- Experience in crypto marketing
+→ MARK AS LEAD!
 
-📝 ПИШИ REASON НА РУССКОМ используя арбитраж-сленг:
-- "депы", "капперский траф", "схемы", "льёт", "крео", "оффер", "конверт"
+📝 PROVIDE REASON IN BOTH LANGUAGES:
+- reason_en: Brief explanation in English (max 80 chars), use terms: traffic, offers, conversions, CPA
+- reason_ru: Краткое пояснение на русском (макс 80 символов), используй сленг: траф, оффер, конверт, крео
 
 Respond ONLY with valid JSON:
 {
     "is_lead": true/false,
     "score": 1-10,
     "category": "influencer" | "traffic_buyer" | "advertiser" | "community_owner" | "marketing_pro" | "potential" | "not_lead",
-    "reason": "Краткое пояснение НА РУССКОМ (макс 100 символов)"
+    "reason_en": "Brief explanation IN ENGLISH",
+    "reason_ru": "Краткое пояснение НА РУССКОМ"
 }"""
+
+def get_system_prompt() -> str:
+    """Get bilingual system prompt."""
+    return BILINGUAL_SYSTEM_PROMPT
 
 
 class IntentAnalyzer:
@@ -202,9 +216,13 @@ class IntentAnalyzer:
         matched_keywords: List[str] = None
     ) -> LeadAnalysis:
         """Return default 'not a lead' analysis when parsing fails."""
+        error_msg_en = f"Analysis failed: {error_reason}"
+        error_msg_ru = f"Ошибка анализа: {error_reason}"
         return LeadAnalysis(
             is_lead=False,
-            reason=f"Analysis failed: {error_reason}",
+            reason=error_msg_en,
+            reason_en=error_msg_en,
+            reason_ru=error_msg_ru,
             confidence=0.0,
             score=0,
             category="not_lead",
@@ -277,7 +295,7 @@ Respond with JSON: {{"is_lead": bool, "score": 1-10, "category": str, "reason": 
                 response = await self.client.chat.completions.create(
                     model=self.config.model,
                     messages=[
-                        {"role": "system", "content": SYSTEM_PROMPT},
+                        {"role": "system", "content": get_system_prompt()},
                         {"role": "user", "content": user_prompt}
                     ],
                     temperature=0.3,
@@ -289,7 +307,7 @@ Respond with JSON: {{"is_lead": bool, "score": 1-10, "category": str, "reason": 
                 response = await self.client.chat.completions.create(
                     model=self.config.model,
                     messages=[
-                        {"role": "system", "content": SYSTEM_PROMPT},
+                        {"role": "system", "content": get_system_prompt()},
                         {"role": "user", "content": user_prompt}
                     ],
                     temperature=0.3,
@@ -316,9 +334,14 @@ Respond with JSON: {{"is_lead": bool, "score": 1-10, "category": str, "reason": 
             
             duration_ms = (asyncio.get_event_loop().time() - start_time) * 1000
             
-            # Validate and sanitize result values (Hunter 2.0)
+            # Validate and sanitize result values (Hunter 2.0 Bilingual)
             is_lead = bool(result.get("is_lead", False))
-            reason = str(result.get("reason", "No reason provided"))[:200]
+            
+            # Extract bilingual reasons
+            reason_en = str(result.get("reason_en", result.get("reason", "No reason provided")))[:200]
+            reason_ru = str(result.get("reason_ru", result.get("reason", "Причина не указана")))[:200]
+            reason = reason_en  # Default to English for backward compatibility
+            
             category = str(result.get("category", "not_lead"))
             
             # Score handling
@@ -334,6 +357,8 @@ Respond with JSON: {{"is_lead": bool, "score": 1-10, "category": str, "reason": 
             analysis = LeadAnalysis(
                 is_lead=is_lead,
                 reason=reason,
+                reason_en=reason_en,
+                reason_ru=reason_ru,
                 confidence=confidence,
                 score=score,
                 category=category,

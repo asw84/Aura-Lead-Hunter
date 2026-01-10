@@ -191,6 +191,25 @@ async def run_lead_hunter(target_chats: list[str] = None, keywords_only: bool = 
         )
         logger.success("Report", f"HTML отчёт создан: {report_path}")
         
+        # Auto-export outreach contacts
+        outreach_file = csv_exporter.export_contacts_for_outreach(all_leads, min_score=5)
+        logger.success("Outreach", f"📤 Контакты для рассылки: {outreach_file}")
+        
+        # Count hot/warm for summary
+        hot_count = len([l for l in positive_leads if l.score >= 7])
+        warm_count = len([l for l in positive_leads if 5 <= l.score < 7])
+        
+        logger.panel(
+            "📤 OUTREACH READY",
+            f"🔥 Горячих контактов: {hot_count}\n"
+            f"🟡 Тёплых контактов: {warm_count}\n"
+            f"📁 Файлы:\n"
+            f"   • outreach_hot_{timestamp}.txt (приоритет)\n"
+            f"   • outreach_warm_{timestamp}.txt\n"
+            f"   • outreach_all_{timestamp}.txt",
+            "cyan"
+        )
+        
         # Auto-open in browser
         import webbrowser
         import os

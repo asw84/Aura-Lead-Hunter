@@ -27,7 +27,8 @@ sessions/*.session-journal
 # Data exports (contains PII)
 data/*.csv
 data/*.html
-data/potential_chats.txt
+data/*.txt
+!data/.gitkeep
 
 # Logs
 logs/

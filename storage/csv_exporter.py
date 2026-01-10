@@ -62,7 +62,7 @@ class CSVExporter:
             self._log(ThoughtType.WARNING, "No leads to export")
             return filepath
         
-        # Convert to DataFrame (Hunter 2.0 format)
+        # Convert to DataFrame (Hunter 2.0 Bilingual format)
         data = []
         for lead in leads:
             data.append({
@@ -74,6 +74,8 @@ class CSVExporter:
                 "category": lead.category,
                 "confidence": lead.confidence,
                 "ai_summary": lead.reason,
+                "ai_summary_en": getattr(lead, 'reason_en', lead.reason),
+                "ai_summary_ru": getattr(lead, 'reason_ru', lead.reason),
                 "bio": lead.bio[:200] if lead.bio else "",
                 "has_keywords": lead.has_keywords,
                 "matched_keywords": ", ".join(lead.matched_keywords) if lead.matched_keywords else "",
@@ -104,3 +106,80 @@ class CSVExporter:
     ) -> Path:
         """Export all analyzed users including non-leads."""
         return self.export_leads(leads, filename, include_non_leads=True)
+    
+    def export_contacts_for_outreach(
+        self,
+        leads: List[LeadAnalysis],
+        min_score: int = 5,
+        filename: Optional[str] = None
+    ) -> Path:
+        """
+        Export leads as a simple contact list for outreach/mailing.
+        
+        Creates multiple files:
+        - outreach_hot.txt - Score >= 7 (priority contacts)
+        - outreach_warm.txt - Score 5-6 (secondary contacts)
+        - outreach_all.txt - All leads with score >= min_score
+        
+        Returns:
+            Path to the main outreach file
+        """
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        
+        # Filter and sort leads
+        qualified = [l for l in leads if l.is_lead and l.score >= min_score]
+        qualified.sort(key=lambda x: x.score, reverse=True)
+        
+        hot_leads = [l for l in qualified if l.score >= 7]
+        warm_leads = [l for l in qualified if 5 <= l.score < 7]
+        
+        # Helper to get handle
+        def get_handle(lead):
+            return f"@{lead.username}" if lead.username else f"tg://user?id={lead.user_id}"
+        
+        # Export hot leads
+        hot_file = self.export_dir / f"outreach_hot_{timestamp}.txt"
+        with open(hot_file, 'w', encoding='utf-8') as f:
+            f.write(f"# 🔥 HOT LEADS (Score >= 7) - {datetime.now().strftime('%d.%m.%Y %H:%M')}\n")
+            f.write(f"# Total: {len(hot_leads)} contacts\n")
+            f.write("# ─" * 30 + "\n\n")
+            for lead in hot_leads:
+                handle = get_handle(lead)
+                f.write(f"{handle}\n")
+            f.write(f"\n# ─" * 30 + "\n")
+            f.write("# Details:\n")
+            for lead in hot_leads:
+                handle = get_handle(lead)
+                reason = (lead.reason or "")[:60]
+                f.write(f"# {handle:25} | {lead.score}/10 | {lead.category:15} | {reason}\n")
+        
+        # Export warm leads
+        warm_file = self.export_dir / f"outreach_warm_{timestamp}.txt"
+        with open(warm_file, 'w', encoding='utf-8') as f:
+            f.write(f"# 🟡 WARM LEADS (Score 5-6) - {datetime.now().strftime('%d.%m.%Y %H:%M')}\n")
+            f.write(f"# Total: {len(warm_leads)} contacts\n")
+            f.write("# ─" * 30 + "\n\n")
+            for lead in warm_leads:
+                handle = get_handle(lead)
+                f.write(f"{handle}\n")
+        
+        # Export all qualified
+        all_file = self.export_dir / f"outreach_all_{timestamp}.txt"
+        with open(all_file, 'w', encoding='utf-8') as f:
+            f.write(f"# 🎯 ALL LEADS (Score >= {min_score}) - {datetime.now().strftime('%d.%m.%Y %H:%M')}\n")
+            f.write(f"# Total: {len(qualified)} contacts\n")
+            f.write(f"# 🔥 Hot: {len(hot_leads)} | 🟡 Warm: {len(warm_leads)}\n")
+            f.write("# ─" * 30 + "\n\n")
+            for lead in qualified:
+                handle = get_handle(lead)
+                f.write(f"{handle}\n")
+        
+        self._log(ThoughtType.EXPORT, "Outreach contacts exported", {
+            "hot_leads": len(hot_leads),
+            "warm_leads": len(warm_leads),
+            "total": len(qualified),
+            "hot_file": str(hot_file),
+            "all_file": str(all_file)
+        })
+        
+        return hot_file

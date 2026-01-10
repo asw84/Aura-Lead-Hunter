@@ -1,51 +1,85 @@
-# Aura Lead Hunter - Target Chats Database
-# ==========================================
-# Split into 4 sessions to avoid Telegram bans
+# Aura Lead Hunter - MEGA Target Chats Database
+# ==============================================
+# Updated 2026-01-10 based on extensive research
+# Split into 5 sessions to avoid Telegram bans
 # Run 1 session per day with 90-180s delays between joins
 
-# ===== SESSION 1: Арбитраж/CPA (Run Day 1) =====
-# These are your MONEY chats - highest lead concentration
-piratecpa_chat
+# ===== SESSION 1: CPA/Affiliate TOP PRIORITY =====
+# Highest lead concentration - verified working
 cpacash_chat
-arbitrazh_chat
-pro_traff
-affiliate_conf_chat
-leadrock_chat
+partnerkin_en
+affiliate_marketing_chat
+mainstream_marketing
+iamaffiliate
+affsecret
+dr_cash_community
+trafficcardinal
+protraffic_chat
+howteam_chat
+
+# ===== SESSION 2: Traffic Arbitrage RU =====
+# Russian-speaking arbitrage community
+arbitrage_traffic
+media_buyers_chat
 cpa_hub
 arbitraj_traffika
-affiliate_marketing_cis
-arbitrazh_is_live
+prosmmruss
+fb_killa_chat
+cpagram_chat
+cpalive_chat
 
-# ===== SESSION 2: TON/Crypto Builders (Run Day 2) =====
-# Your expertise area - high-value tech leads
-tondev_ru
-ton_society_global
-ton_builders
-ton_developers
-ton_ecosystem
-ton_talk_chat
-ton_apps_chat
-ton_p2p_chat
-fragment_chat
-ton_nft_chat
+# ===== SESSION 3: Crypto/Web3 Affiliate =====
+# High-value crypto leads, DeFi arbitrage
+T3NZU_community_chat
+Aerotyne_Mev
+pelican_en_arbitrage
+traderpow
+FlippingProfits
+easynft_chat
+cryptodaily
+cryptoattack24
+cryptoDevJobs
+ton_community
 
-# ===== SESSION 3: Global/Alpha English (Run Day 3) =====
-# $100+/hour leads - whales and founders
-DeFi_Declassified
-ICO_Analytics_Chat
-BinanceEnglish
-BybitEnglish
-KuCoin_Exchange
-Gateio_English
-MEXCEnglish
-OKXOfficial_English
-Solana_Chat
-Ethereum_Chat
+# ===== SESSION 4: Ad Networks & Platforms =====
+# Direct from ad network communities
+zeydoo_eng
+propellerads_chat
+richadshq
+adsterra_chat
+clickbee_community
+Traffic_jobs
 
-# ===== SESSION 4: Jobs/Gigs (Run Day 4) =====
-# Active dev seekers
-web3_jobs
-ton_dev_jobs
-javascript_jobs_ru
-python_jobs_ru
-it_jobs_cis
+# ===== SESSION 5: Premium/Niche =====
+# Smaller but high-quality leads
+underground_alpha
+PastelAlpha
+prop_firm_chat
+defi_traders_chat
+nft_marketing_chat
+
+# ===== DISCOVERY MODE FINDS =====
+# Add new discovered chats here after each run
+# (Auto-populated by Discovery Mode)
+
+# ===== SESSION 6: 🇺🇦 Ukrainian Arbitrage & Jobs =====
+# Ukrainian-speaking communities with lots of job postings
+geek_arbitrage_ua
+cpadok_chat
+nutra_traff_chat
+traffic_trickster_chat
+ukr_arbitrage
+fox_arbitrage_chat
+nashiba_pro_chat
+traffic_one_academy
+ua_media_buyers
+arbitrage_ua_chat
+devils_media_chat
+
+# ===== SESSION 7: Job-focused Chats =====
+# Chats specifically for hiring/vacancies
+affiliate_jobs
+cpa_vacancies
+media_buyer_jobs
+arbitrage_hr
+traffic_work
