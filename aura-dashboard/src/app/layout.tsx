@@ -13,10 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aura AI Hub | Intelligent Lead Generation",
-  description: "Autonomous AI engine for real-time Affiliate Marketing & Web3 Intelligence. 112+ verified leads identified today.",
+  title: "Aura AI Hub | 204+ Hot Leads Found 🚀",
+  description: "Autonomous AI engine for real-time Affiliate Marketing & Web3 Intelligence. 200+ verified leads identified.",
   openGraph: {
-    title: "Aura AI Hub | 112+ Hot Leads Found",
+    title: "Aura AI Hub | 204+ Hot Leads Found",
     description: "Real-time AI matching for top-tier traffic buyers and employers.",
     images: ["/og-image.png"],
   },
