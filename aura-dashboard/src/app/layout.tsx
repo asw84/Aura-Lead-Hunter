@@ -13,8 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aura Lead Hunter 2.0",
-  description: "AI-Powered CPA Lead Intelligence & Matchmaking",
+  title: "Aura AI Hub | Intelligent Lead Generation",
+  description: "Autonomous AI engine for real-time Affiliate Marketing & Web3 Intelligence. 112+ verified leads identified today.",
+  openGraph: {
+    title: "Aura AI Hub | 112+ Hot Leads Found",
+    description: "Real-time AI matching for top-tier traffic buyers and employers.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({
