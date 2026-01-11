@@ -24,11 +24,20 @@
 |---------|-------------|
 | **🔍 Deep Scraping** | Scrape up to 1000+ messages per chat with rate-limit-aware delays |
 | **👤 Bio Fetching** | Automatically fetch user bios for enhanced profiling |
+| **🛡️ Security Board** | Real-time risk assessment dashboard with heatmaps and anomaly detection |
+| **🚫 Anti-Fraud Engine** | Automated scanning for new accounts (ID > 7B) and suspicious activity patterns |
 | **🔑 Keyword Pre-filter** | 40+ industry keywords filter users BEFORE expensive AI calls |
 | **🤖 AI Intent Analysis** | LLM-powered lead scoring (1-10) with category classification |
-| **🔗 Discovery Mode** | Automatically discovers new Telegram chats from messages |
-| **📊 HTML Reports** | Beautiful dark-themed reports with PDF export |
+| **📊 HTML Reports** | Beautiful dark-themed reports with PDF export and printable security cards |
 | **💾 History Preservation** | Timestamped exports — never overwrite previous hunts |
+
+### Risk Assessment Levels
+
+```
+[HIGH]   → New accounts (< 3 months old) or explicit scam mentions
+[MEDIUM] → Suspicious behavior patterns, spam tools promotion, or unverified claims
+[SECURE] → Aged accounts (ID < 5B) with proven track record and professional bios
+```
 
 ### Lead Categories
 
@@ -176,7 +185,15 @@ data/
 ├── leads_YYYYMMDD_HHMMSS.csv      # High-score leads (score ≥ 5)
 ├── all_users_YYYYMMDD_HHMMSS.csv  # All analyzed users
 ├── report_YYYYMMDD_HHMMSS.html    # Visual HTML report
-└── potential_chats.txt             # Discovered chat links
+├── AURA_BLACKLIST_WARNINGS.md     # 🛡️ AI Security Audit & Fraud Report
+└── potential_chats.txt            # Discovered chat links
+```
+
+### Security Audit (Anti-Fraud)
+
+```bash
+# Scan recent data for high-risk accounts and patterns
+python create_blacklist.py
 ```
 
 ---

@@ -1,29 +1,30 @@
-# 🐳 Aura Matchmaker: Outreach Log (Mohit Case) - CLOSED
-**Target:** 2M+ Daily FB Traffic (India/PK/BD)
-**Status:** ❌ DISMISSED (Probable Scam / Fraud)
+# 🐳 Aura Matchmaker: Outreach Log (Mohit Case) - THE PIVOT
+**Objective:** Monetize Indian Gambling/Trading traffic through verified partnerships.
 
 | Contact | Entity / Status | Verdict / Notes |
 | :--- | :--- | :--- |
-| **Mohit (@xboss01)** | **Supplier** | **SCAM / DISMISSED.** User identified as fraud. No further contact. |
-| **Abhishek (@TIWARIPAYMENTS)** | **iGaming Founder** | **ON HOLD.** Lead was for the scammer's traffic. |
-| **Oleg (@oleg_trafficbalance)** | **Traffic Balance** | **ON HOLD.** Discussion stopped due to supplier fraud detection. |
-| **@Tp8000 (Lucky)** | **CPA Whale (India)** | **PRIORITY #1.** Actively seeking Indian CPI. Outreach set for Monday morning. |
-| **Nadi (@Nadi_25_Nadi)** | **FB Scale Expert** | **PENDING.** Backlink for pure FB infrastructure. |
-| **ID:6875824989** | **CPA Network Owner** | **RESERVE.** Looking for Gambling CPA India. |
-| **Oleg (@oleg_trafficbalance)** | **Traffic Balance** | **PENDING.** Waiting for upper management intro. |
+| **Mohit (@xboss01)** | **Supplier** | **❌ SCAM / BLACKLISTED.** Identified as fraud via Aura AI technical audit (ID series 7.4B). |
+| **Abhishek (@TIWARIPAYMENTS)** | **iGaming Founder** | **⚡ ACTIVE PIVOT.** Sent "I keep it real" message. Offering new verified candidates. |
+| **Oleg (@oleg_trafficbalance)** | **Traffic Balance** | **🤝 PARTNERSHIP.** Transformed from broker to AI-auditor. Discussion on technical fraud detection. |
 
-## 🗓️ Monday Morning Plan (Strike Zone):
-1. **09:30:** Check if **Abhishek** cracked and offered a CPA test.
-2. **10:00:** Send "Draft #1" to **@Tp8000** (Lucky). He is our best bet for pure CPI India.
-3. **10:30:** Contact **ID:6875824989** if no response from Lucky. 
-4. **12:00:** Reassure **Mohit** with the fresh CPA tracking links.
+## 🇮🇳 Verified Candidates for Abhi (India Gambling/Trading)
+| Score | Contact | Verdict / Notes |
+| :--- | :--- | :--- |
+| **10/10** | **@Lingard1919868** | **VIP Logic.** High-Spend FB infrastructure. Direct fit for scaling Abhi's brands. |
+| **9/10** | **@Katrinalaska** | **CPA/FTD King.** Verified iGaming deposits. Low-risk test for monetization. |
+| **9/10** | **@LukeKling** | **GEO Expert.** Veteran in Zeydoo India traffic. Reliable conversion partner. |
+
+## 🗓️ Next Steps (Priority Actions):
+1. **Monday 10:00:** Follow up with **Abhishek** on the "3 Veterans" list. Secure one test run.
+2. **Monday 11:00:** Reach out to **@Katrinalaska** to pre-verify their capacity for Indian iGaming.
+3. **Internal:** Strengthen Aura AI's ID-Audit logic to prevent "Mohit-style" time wasting.
 
 ---
 
 ## 💰 Monetization & Commission Strategy
 | Target | Expected Fee | Status |
 | :--- | :--- | :--- |
-| **Buyer (Network)** | **5% Management Fee** or **$1 per FDT** | Waiting for deal closure. |
-| **Supplier (Mohit)** | **Intro Fee ($500)** | Not announced yet. |
+| **Abhishek (Buyer)** | **$1 per FDT** or **% of RevShare** | Pivot Stage: Re-building trust. |
+| **New Candidates** | **Intro Fee / Performance split** | To be negotiated individually. |
 
-**CRITICAL:** Terms must be confirmed BEFORE the group chat is created.
+**CRITICAL:** Using the "I'm a filter, not just a broker" angle to justify higher management fees.

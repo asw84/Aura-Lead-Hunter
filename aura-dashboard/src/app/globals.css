@@ -176,8 +176,8 @@ body {
     color: #7b2cbf !important;
   }
 
-  .text-\[#00d4ff\],
-  .text-cyan-400 {
+  .text-cyan-400,
+  .text-blue-500 {
     color: #0369a1 !important;
   }
 
