@@ -15,10 +15,29 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Aura AI Hub | 204+ Hot Leads Found 🚀",
   description: "Autonomous AI engine for real-time Affiliate Marketing & Web3 Intelligence. 200+ verified leads identified.",
+  keywords: ["affiliate marketing", "leads", "telegram scraper", "crypto", "arbitrage"],
+  authors: [{ name: "Aura AI" }],
   openGraph: {
-    title: "Aura AI Hub | 204+ Hot Leads Found",
-    description: "Real-time AI matching for top-tier traffic buyers and employers.",
-    images: ["/og-image.png"],
+    title: "Aura AI Hub 💘 Matchmaking 2.0",
+    description: "Real-time AI matching for top-tier traffic buyers and employers. Discover the best opportunities in arbitrage.",
+    url: "https://aura-dashboard-nine.vercel.app",
+    siteName: "Aura Lead Hunter",
+    images: [
+      {
+        url: "/aura.png",
+        width: 1200,
+        height: 630,
+        alt: "Aura AI Hub Preview",
+      },
+    ],
+    locale: "ru_RU",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aura AI Hub | Leads & Matchmaking",
+    description: "Autonomous AI engine for real-time Affiliate Marketing intelligence.",
+    images: ["/aura.png"],
   },
 };
 
