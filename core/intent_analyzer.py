@@ -236,17 +236,18 @@ class IntentAnalyzer:
             matched_keywords=matched_keywords or []
         )
     
-    async def analyze_user(
-        self,
-        user_id: int,
-        username: Optional[str],
-        display_name: Optional[str],
-        messages: List[str],
-        source_chat: str,
-        bio: Optional[str] = None,
-        has_keywords: bool = False,
-        matched_keywords: List[str] = None
-    ) -> LeadAnalysis:
+        # --- TECHNICAL PRE-CHECK (ID AGE) ---
+        user_id_int = int(user_id)
+        id_risk_factor = False
+        if user_id_int > 7000000000:
+            id_risk_factor = True
+            
+        print(f"[DEBUG] Analyzing user {username} (ID: {user_id_int}). Risk Factor: {id_risk_factor}")
+
+        # Add this context to the system prompt
+        risk_context = ""
+        if id_risk_factor:
+            risk_context = "\n⚠️ WARNING: This is a VERY NEW account (ID series 7B+). Be extra skeptical about large volume claims."
         """
         Hunter 2.0: Analyze user with messages + bio.
         

@@ -53,58 +53,6 @@ interface Match {
 const matchesData: Match[] = [
     {
         employer: {
-            contact: '@ArbiTalent',
-            category: 'agency_owner',
-            language: '🇷🇺 RU',
-            reason: 'Тимлид ищет байеров и лидеров с большими бюджетами',
-            conditions: 'VIP Условия',
-            vertical: 'General',
-        },
-        buyers: [
-            {
-                buyer: {
-                    contact: 'ID:7453055850',
-                    name: 'Mohit pal',
-                    score: 9,
-                    vertical: 'General',
-                    trafficType: 'FB',
-                    volume: '2M daily',
-                    reason: 'Имеет 2М трафа в день, ищет прямой выход на реклов и эксклюзивные условия',
-                },
-                matchScore: 98,
-                messageToEmployer: 'Здравствуйте! У меня есть топ-байер Mohit pal с объемами 2M daily. Как раз под ваши требования по большим бюджетам. Готовы обсудить? 📈',
-                messageToBuyer: 'Mohit, this is a Tier-1 match! 🏢 @ArbiTalent (Agency Owner) is looking for whales with Traffic 2M+. This is a serious professional team. 💎',
-            },
-        ],
-    },
-    {
-        employer: {
-            contact: '@anastasiiaSSD',
-            category: 'agency_owner',
-            language: '🇷🇺 RU',
-            reason: 'Набирает байеров и тимлидов для арбитражной команды',
-            conditions: 'Ставка + %',
-            vertical: 'General',
-        },
-        buyers: [
-            {
-                buyer: {
-                    contact: 'ID:7453055850',
-                    name: 'Mohit pal',
-                    score: 9,
-                    vertical: 'General',
-                    trafficType: 'FB',
-                    volume: '2M daily',
-                    reason: 'Имеет 2М трафа в день, ищет стабильную команду',
-                },
-                matchScore: 95,
-                messageToEmployer: 'Привет! Есть мощный байер Mohit pal (2M daily views). Идеально подходит для усиления вашей команды. 🤝',
-                messageToBuyer: 'Mohit, check this: @anastasiiaSSD (Agency Owner) is expanding. Very stable team, looking for seniors. High level stuff! 🏢',
-            },
-        ],
-    },
-    {
-        employer: {
             contact: '@viktori950',
             category: 'team_lead',
             language: '🇷🇺 RU',
@@ -464,32 +412,6 @@ const matchesData: Match[] = [
                 matchScore: 88,
                 messageToEmployer: 'Привет! Есть Spider (Score 10/10). Опыт с бурж трафиком в профильных нишах. 🕷️',
                 messageToBuyer: 'Spider, @Tp8000 ищет спецов под бурж гемблу. Твой подход к заливу им подойдет. 🌍',
-            },
-        ],
-    },
-    {
-        employer: {
-            contact: '@aliona_nda',
-            category: 'agency_owner',
-            language: '🇷🇺 RU',
-            reason: 'Ищет топовых байеров для долгосрочного партнерства',
-            conditions: 'Equity / Profit Share',
-            vertical: 'General',
-        },
-        buyers: [
-            {
-                buyer: {
-                    contact: '@xboss01',
-                    name: 'Mohit Pal',
-                    score: 9,
-                    vertical: 'Dating',
-                    trafficType: 'FB',
-                    volume: '2M daily',
-                    reason: 'Has 2M daily FB traffic, seeks dating offers, runs campaigns',
-                },
-                matchScore: 97,
-                messageToEmployer: 'Алена, у меня есть Mohit Pal с объемами 2M daily. Идеальный партнер для долгосрочки. 🤝',
-                messageToBuyer: 'Mohit, @aliona_nda is looking for TOP partners for long-term profit share. With your 2M traffic, you are their #1 choice. 💎',
             },
         ],
     },
